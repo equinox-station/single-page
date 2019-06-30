@@ -107,8 +107,8 @@ export class AppComponent {
   }
   
   modificarAcao(tipo: number) {
-    if (tipo == 0) document.getElementById('tipoAcao').innerHTML = "Inserir";
-    else document.getElementById('tipoAcao').innerHTML = "Modificar";
+    if (tipo == 0) document.getElementById('tipoAcao').innerHTML = "Insert";
+    else document.getElementById('tipoAcao').innerHTML = "Update";
   }
 }
 

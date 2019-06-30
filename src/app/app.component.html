@@ -6,29 +6,33 @@
   </span>
   <button data-toggle="modal" data-target="#modifyModal" (click)="startnew()" class="btn btn-secondary btn-circle">
     <img src="https://img.icons8.com/material/24/FFFFFF/add.png">
-    Adicionar Tripulação
+    Add Crew
   </button>
 </nav>
 
-<br>
+<!-- Mensagem Inicial -->
+<div class="alert alert-warning alert-dismissible fade show w-50 mx-auto my-3" role="alert">
+  <strong>Welcome!</strong> This is the Equinox Station of the Interstellar Guardian tripulation database. Here you can access, insert, update or delete records about our crew. Use with responsability! Remember: the Goddess is watching!
+  <button type="button" class="close" data-dismiss="alert" aria-label="Fechar"> <span aria-hidden="true">x</span></button>
+</div>
 
 <!-- Cards dos dados usuários -->
-<div class="container center-child">
+<div class="container center-child mt-3">
   <div *ngFor="let user of listUser" class="alert alert-secondary w-50 mb-3">
     <div class="dropright float-right">
       <button class="btn btn-link alert-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="tel:{{user.telefone}}">
           <img src="https://img.icons8.com/material/24/007bff/phone.png">
-          <span class="btn btn-link">Ligar</span>
+          <span class="btn btn-link">Call</span>
         </a>
         <div class="dropdown-item">
           <img src="https://img.icons8.com/material/24/007bff/update-left-rotation.png">
-          <button data-toggle="modal" data-target="#modifyModal" (click)="copy(user.id)" class="btn btn-link">Atualizar</button>
+          <button data-toggle="modal" data-target="#modifyModal" (click)="copy(user.id)" class="btn btn-link">Update</button>
         </div>
         <div class="dropdown-item">
           <img src="https://img.icons8.com/material/24/007bff/delete-forever.png">
-          <button (click)="deleteUser(user.id)" class="btn btn-link">Deletar</button>
+          <button (click)="deleteUser(user.id)" class="btn btn-link">Delete</button>
         </div>
       </div>
     </div>
@@ -54,7 +58,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modifyModalLabel">
-          <span id="tipoAcao">Inserir/Modificar</span> Tripulação
+          <span id="tipoAcao">Insert/Update</span> Crew
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">x</span>
@@ -65,32 +69,35 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">@</span>
           </div>
-          <input type="text" id="login" [(ngModel)]="formUser.login" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon1" />
+          <input type="text" id="login" [(ngModel)]="formUser.login" class="form-control" aria-label="Login" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Nome</span>
+            <span class="input-group-text" id="basic-addon1">Name</span>
           </div>
-          <input type="text" id="nome" [(ngModel)]="formUser.nome" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" />
+          <input type="text" id="nome" [(ngModel)]="formUser.nome" class="form-control" aria-label="Nome" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Cargo</span>
+            <span class="input-group-text" id="basic-addon1">Position</span>
           </div>
-          <input type="text" id="cargo" [(ngModel)]="formUser.cargo" class="form-control" placeholder="Cargo" aria-label="Cargo" aria-describedby="basic-addon1" />
+          <input type="text" id="cargo" [(ngModel)]="formUser.cargo" class="form-control" aria-label="Cargo" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Telefone</span>
+            <span class="input-group-text" id="basic-addon1">Telephone</span>
           </div>
-          <input type="text" id="telefone" [(ngModel)]="formUser.telefone" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon1" />
+          <input type="text" id="telefone" [(ngModel)]="formUser.telefone" class="form-control" aria-label="Telefone" aria-describedby="basic-addon1" />
         </div>
 
-        <button class="btn btn-secondary w-100" (click)="modifyUser(formUser)" data-dismiss="modal">Salvar</button>
+        <button class="btn btn-secondary w-100" (click)="modifyUser(formUser)" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
+</div>
+<div class="bottom-right">
+  <small>Copyright (c) 2019 Francisco Lêdson dos Santos</small>
 </div>
