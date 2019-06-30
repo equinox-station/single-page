@@ -13,7 +13,7 @@
 <!-- Mensagem Inicial -->
 <div class="alert alert-warning alert-dismissible fade show w-50 mx-auto my-3" role="alert">
   <strong>Welcome!</strong> This is the Equinox Station of the Interstellar Guardian tripulation database. Here you can access, insert, update or delete records about our crew. Use with responsability! Remember: the Goddess is watching!
-  <button type="button" class="close" data-dismiss="alert" aria-label="Fechar"> <span aria-hidden="true">x</span></button>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">x</span></button>
 </div>
 
 <!-- Cards dos dados usuários -->
@@ -60,7 +60,7 @@
         <h5 class="modal-title" id="modifyModalLabel">
           <span id="tipoAcao">Insert/Update</span> Crew
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
       </div>
@@ -76,21 +76,21 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Name</span>
           </div>
-          <input type="text" id="nome" [(ngModel)]="formUser.nome" class="form-control" aria-label="Nome" aria-describedby="basic-addon1" />
+          <input type="text" id="nome" [(ngModel)]="formUser.nome" class="form-control" aria-label="Name" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Position</span>
           </div>
-          <input type="text" id="cargo" [(ngModel)]="formUser.cargo" class="form-control" aria-label="Cargo" aria-describedby="basic-addon1" />
+          <input type="text" id="cargo" [(ngModel)]="formUser.cargo" class="form-control" aria-label="Position" aria-describedby="basic-addon1" />
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Telephone</span>
           </div>
-          <input type="text" id="telefone" [(ngModel)]="formUser.telefone" class="form-control" aria-label="Telefone" aria-describedby="basic-addon1" />
+          <input type="text" id="telefone" [(ngModel)]="formUser.telefone" class="form-control" aria-label="Telephone" aria-describedby="basic-addon1" />
         </div>
 
         <button class="btn btn-secondary w-100" (click)="modifyUser(formUser)" data-dismiss="modal">OK</button>
