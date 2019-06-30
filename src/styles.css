@@ -1,0 +1,23 @@
+table, tbody {
+	width: 100%;
+}
+
+td > * {
+	margin: 0 auto;
+}
+
+form {
+    margin-block-end: 0;
+}
+
+.opacity-75 {
+    opacity:0.75;
+}
+
+.center-child > * {
+    margin: 0 auto;
+}
+
+.dropdown-item:active {
+    background: none;
+}

@@ -1,0 +1,96 @@
+<!-- Barra superior de navegação -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+  <span class="navbar-brand">
+    <img src="https://img.icons8.com/material/24/FFFFFF/space-shuttle.png" width="30" height="30" class="d-inline-block align-top rounded" alt="">
+    Equinox Station of the Interstellar Guardian
+  </span>
+  <button data-toggle="modal" data-target="#modifyModal" (click)="startnew()" class="btn btn-secondary btn-circle">
+    <img src="https://img.icons8.com/material/24/FFFFFF/add.png">
+    Adicionar Tripulação
+  </button>
+</nav>
+
+<br>
+
+<!-- Cards dos dados usuários -->
+<div class="container center-child">
+  <div *ngFor="let user of listUser" class="alert alert-secondary w-50 mb-3">
+    <div class="dropright float-right">
+      <button class="btn btn-link alert-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="tel:{{user.telefone}}">
+          <img src="https://img.icons8.com/material/24/007bff/phone.png">
+          <span class="btn btn-link">Ligar</span>
+        </a>
+        <div class="dropdown-item">
+          <img src="https://img.icons8.com/material/24/007bff/update-left-rotation.png">
+          <button data-toggle="modal" data-target="#modifyModal" (click)="copy(user.id)" class="btn btn-link">Atualizar</button>
+        </div>
+        <div class="dropdown-item">
+          <img src="https://img.icons8.com/material/24/007bff/delete-forever.png">
+          <button (click)="deleteUser(user.id)" class="btn btn-link">Deletar</button>
+        </div>
+      </div>
+    </div>
+    <div id="card" class="media">
+      <img class="align-self-center rounded-circle" src="https://img.icons8.com/dusk/52/000000/user-male-circle.png" alt="Foto de perfil" width="64" height="64">
+      <div class="align-self-center media-body px-3">
+        <h5 class="mt-0">
+          <span class="font-weight-bold" id='nome{{user.id}}'>{{user.nome}}</span>
+          <span class="opacity-75"> @<span id='login{{user.id}}'>{{user.login}}</span></span>
+        </h5>
+        <span id='cargo{{user.id}}'>{{user.cargo}}</span>
+        <span class="d-none" id='telefone{{user.id}}'>{{user.telefone}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<!-- Modal Form -->
+<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="modifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modifyModalLabel">
+          <span id="tipoAcao">Inserir/Modificar</span> Tripulação
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input type="text" id="login" [(ngModel)]="formUser.login" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon1" />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Nome</span>
+          </div>
+          <input type="text" id="nome" [(ngModel)]="formUser.nome" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="basic-addon1" />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Cargo</span>
+          </div>
+          <input type="text" id="cargo" [(ngModel)]="formUser.cargo" class="form-control" placeholder="Cargo" aria-label="Cargo" aria-describedby="basic-addon1" />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Telefone</span>
+          </div>
+          <input type="text" id="telefone" [(ngModel)]="formUser.telefone" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon1" />
+        </div>
+
+        <button class="btn btn-secondary w-100" (click)="modifyUser(formUser)" data-dismiss="modal">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
